@@ -14,7 +14,7 @@ using namespace  std;
 //
 class  BVH
 {
-  public:
+public:
 
     enum  ChannelEnum
     {
@@ -43,7 +43,7 @@ class  BVH
     };
 
 
-  private:
+private:
     bool                     is_load_success;
 
     string                   file_name;
@@ -59,7 +59,7 @@ class  BVH
     double *                 motion;
 
 
-  public:
+public:
 
     BVH();
     BVH( const string& bvh_file_name );
@@ -71,7 +71,7 @@ class  BVH
 
     void  Load( const string& bvh_file_name );
 
-  public:
+public:
 
     bool  IsLoadSuccess() const { return is_load_success; }
 
@@ -100,7 +100,7 @@ class  BVH
 
     void  SetMotion( int f, int c, double v ) { motion[ f*num_channel + c ] = v; }
 
-  public:
+public:
     void  RenderFigure( int frame_no, float scale = 1.0f );
     static void  RenderFigure( const Joint * root, const double * data, DualQuaternion, float scale = 1.0f );
     static void  RenderBone( V3f, V3f );

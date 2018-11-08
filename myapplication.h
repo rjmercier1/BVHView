@@ -4,29 +4,29 @@
 #include <QFileOpenEvent>
 
 class MyApplication : public QApplication{
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     MyApplication(int &argc, char **argv) : QApplication(argc, argv){}
 
-  signals:
+signals:
     void fileOpen(QString s);
 
-  protected:
+protected:
     bool event(QEvent *e){ // the open file event handler
-      switch (e->type()) {
+        switch (e->type()) {
         // catch only FileOpen event
         case QEvent::FileOpen: {
-          // cast file name from passed event
-          const QString file_name = static_cast<QFileOpenEvent *>(e)->file();
-          emit fileOpen(file_name);
+            // cast file name from passed event
+            const QString file_name = static_cast<QFileOpenEvent *>(e)->file();
+            emit fileOpen(file_name);
 
-          // handle file open here
-          } //openFile(file_name);
-          return true;
+            // handle file open here
+        } //openFile(file_name);
+            return true;
         default:
-          return QApplication::event(e);
-      }
+            return QApplication::event(e);
+        }
     }
 };
 

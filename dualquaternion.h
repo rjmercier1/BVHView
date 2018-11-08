@@ -51,7 +51,7 @@ public:
 
     M44f toMatrix();
 
-//private:
+    //private:
     Quatf m_real;
     Quatf m_dual;
 };
