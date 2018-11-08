@@ -69,6 +69,30 @@ void MyQGLWidget::drawGrid()
     glEnd();
 }
 
+void MyQGLWidget::drawAxes()
+{
+    glPushMatrix();
+        float w;
+        glGetFloatv(GL_LINE_WIDTH, &w);
+        glLineWidth(2);
+        glTranslatef(0, 0.005, 0);
+        glBegin(GL_LINES);
+            glColor3f(1,0,0);
+            glVertex3f(0,0,0);
+            glVertex3f(1,0,0);
+
+            glColor3f(0,1,0);
+            glVertex3f(0,0,0);
+            glVertex3f(0,1,0);
+
+            glColor3f(0,0,1);
+            glVertex3f(0,0,0);
+            glVertex3f(0,0,1);
+        glEnd();
+        glLineWidth(w);
+    glPopMatrix();
+}
+
 void
 MyQGLWidget::paintGL()
 {
@@ -82,6 +106,7 @@ MyQGLWidget::paintGL()
     glRotatef(-camera_yaw,   0.0, 1.0, 0.0);
     glTranslatef(0, -0.5, 0);
     drawGrid();
+    drawAxes();
     if (bvh)
         bvh->RenderFigure(frame_no, 1.0);
 }

@@ -29,6 +29,7 @@ protected:
     void keyPressEvent(QKeyEvent *ev);
     void timerEvent(QTimerEvent *event);
     void drawGrid();
+    void drawAxes();
 
 private:
     int win_width, win_height;
