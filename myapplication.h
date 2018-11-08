@@ -3,6 +3,14 @@
 #include <QApplication>
 #include <QFileOpenEvent>
 
+/*
+ * This class is necessary on OSX to catch the FileOpen events from
+ * the operating system.  When this application is made the default for .bvh
+ * files the OS sends this event when .bvh files are double-clicked in the file browser.
+ *
+ * On other operating systems the file paths are passed as command line arguments
+ */
+
 class MyApplication : public QApplication{
     Q_OBJECT
 
